@@ -1,0 +1,22 @@
+package org.example.impostos;
+
+import org.example.orcamento.Orcamento;
+
+import java.math.BigDecimal;
+
+public class CalculadoraDeImpostos {
+
+    public BigDecimal calcular(Orcamento orcamento, TipoImposto tipoImposto) {
+        switch (tipoImposto) {
+            case ICMS:
+                return orcamento.getValor().multiply(new BigDecimal(0.1));
+            case ISS:
+                return orcamento.getValor().multiply(new BigDecimal(0.2));
+            default:
+                return BigDecimal.ZERO;
+
+        }
+    }
+
+}
+
