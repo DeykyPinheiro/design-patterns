@@ -9,8 +9,15 @@ public class SemDesconto extends Desconto {
     public SemDesconto() {
         super(null);
     }
+    
 
-    public BigDecimal calcularDesconto(Orcamento orcamento) {
+    @Override
+    public BigDecimal efetuarCalculoDesconto(Orcamento orcamento) {
         return BigDecimal.ZERO;
+    }
+
+    @Override
+    public Boolean deveAplicarDesconto(Orcamento orcamento) {
+        return true;
     }
 }
