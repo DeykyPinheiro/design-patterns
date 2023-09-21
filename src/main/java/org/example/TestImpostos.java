@@ -3,12 +3,11 @@ package org.example;
 import org.example.impostos.CalculadoraDeImpostos;
 import org.example.impostos.ICMS;
 import org.example.impostos.ISS;
-import org.example.impostos.Imposto;
 import org.example.orcamento.Orcamento;
 
 import java.math.BigDecimal;
 
-public class Main {
+public class TestImpostos {
 
 
     public static void main(String[] args) {
@@ -16,9 +15,10 @@ public class Main {
         Orcamento orcamento = new Orcamento(new BigDecimal("100"));
         CalculadoraDeImpostos calculadoraDeImpostos = new CalculadoraDeImpostos();
 
-        System.out.println(calculadoraDeImpostos.calcular(orcamento, new ICMS()));
-        System.out.println(calculadoraDeImpostos.calcular(orcamento, new ISS()));
-//        System.out.println(calculadoraDeImpostos.calcular(orcamento, TipoImposto.ILUSTRAR));
+
+        System.out.println(calculadoraDeImpostos.calcularImposto(orcamento, new ICMS()));
+        System.out.println(calculadoraDeImpostos.calcularImposto(orcamento, new ISS()));
+
     }
 
 
