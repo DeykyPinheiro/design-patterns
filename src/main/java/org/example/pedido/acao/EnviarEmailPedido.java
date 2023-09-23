@@ -2,9 +2,10 @@ package org.example.pedido.acao;
 
 import org.example.pedido.Pedido;
 
-public class EnviarEmailPedido {
+public class EnviarEmailPedido implements AcaoAposGerarPedido{
 
-    public void enviarEmail(Pedido pedido){
+    @Override
+    public void execucarAcao(Pedido pedido){
         System.out.println("enviado pedido do cliente: " + pedido.getCliente());
     }
 }

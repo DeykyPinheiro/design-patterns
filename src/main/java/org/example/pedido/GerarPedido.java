@@ -1,9 +1,11 @@
 package org.example.pedido;
 
 import org.example.orcamento.Orcamento;
+import org.example.pedido.acao.AcaoAposGerarPedido;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class GerarPedido {
 
@@ -13,6 +15,12 @@ public class GerarPedido {
     private BigDecimal valorOrcamento;
 
     int quantidadeItens;
+
+    private List<AcaoAposGerarPedido> acoes;
+
+    public void setAcoes(List<AcaoAposGerarPedido> acoes) {
+        this.acoes = acoes;
+    }
 
     public GerarPedido(String cliente, BigDecimal valorOrcamento, int quantidadeItens) {
         this.cliente = cliente;
@@ -26,9 +34,6 @@ public class GerarPedido {
         LocalDateTime data = LocalDateTime.now();
         Pedido pedido = new Pedido(this.cliente, data, orcamento);
 
-
-        System.out.println("salvar pedido em banco de dados");
-        System.out.println("enviar e-mail com pedido");
-
+        acoes.forEach(a -> a.execucarAcao(pedido));
     }
 }
