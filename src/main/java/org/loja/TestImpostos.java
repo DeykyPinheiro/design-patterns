@@ -16,9 +16,11 @@ public class TestImpostos {
         CalculadoraDeImpostos calculadoraDeImpostos = new CalculadoraDeImpostos();
 
 
-        System.out.println(calculadoraDeImpostos.calcularImposto(orcamento, new ICMS()));
-        System.out.println(calculadoraDeImpostos.calcularImposto(orcamento, new ISS()));
+        System.out.println(calculadoraDeImpostos.calcularImposto(orcamento, new ICMS(null)));
+        System.out.println(calculadoraDeImpostos.calcularImposto(orcamento, new ISS(null)));
 
+        System.out.println(calculadoraDeImpostos.calcularImposto(orcamento, new ICMS(new ISS(null))));
+        System.out.println(calculadoraDeImpostos.calcularImposto(orcamento, new ISS(new ICMS(null))));
     }
 
 
