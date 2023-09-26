@@ -1,6 +1,7 @@
 package org.loja.orcamento;
 
 import org.loja.orcamento.situacao.EmAnalise;
+import org.loja.orcamento.situacao.Finalizado;
 import org.loja.orcamento.situacao.SituacaoOrcamento;
 
 import java.math.BigDecimal;
@@ -55,5 +56,9 @@ public class Orcamento {
 
     public Integer getQuantidadeDeItens() {
         return quantidadeDeItens;
+    }
+
+    public boolean isFinalizado() {
+        return situacao instanceof Finalizado;
     }
 }
